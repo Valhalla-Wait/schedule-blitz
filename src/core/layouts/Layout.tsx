@@ -1,5 +1,5 @@
 import Head from "next/head"
-import React, { FC } from "react"
+import React, { FC, Suspense } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
@@ -8,12 +8,10 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
 }) => {
   return (
     <>
-      <Head>
-        <title>{title || "schedule-blitz"}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      {children}
+      <div className="header">
+        <h1>HIIIII</h1>
+      </div>
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
     </>
   )
 }
